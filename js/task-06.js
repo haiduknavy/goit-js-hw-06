@@ -3,11 +3,16 @@ const input = document.querySelector('#validation-input');
 input.addEventListener('blur', onInput);
 
 function onInput (e){
-    if(e.currentTarget.value.length != e.currentTarget.getAttribute('data-length')){
-        e.currentTarget.classList.add('invalid')
-        e.currentTarget.classList.remove('valid')
+    const dataLength = Number(input.getAttribute('data-length'));
+
+    const inputValue = input.value.trim();
+    const inputLength = inputValue.length;
+
+    if (inputLength === dataLength) {
+      input.classList.remove('invalid');
+      input.classList.add('valid');
     } else {
-        e.currentTarget.classList.add('valid')
-        e.currentTarget.classList.remove('invalid')
+      input.classList.remove('valid');
+      input.classList.add('invalid');
     }
 }

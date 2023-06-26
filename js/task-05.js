@@ -4,9 +4,11 @@ const span = document.querySelector('#name-output')
 input.addEventListener('input', onInput)
 
 function onInput(e){
-    if(!e.currentTarget.value.length){
-        span.textContent =  'Anonymos';
+    const name = input.value.trim();
+
+    if (name === '') {
+      span.textContent = 'Anonymous';
     } else {
-        span.textContent = e.currentTarget.value;
+      span.textContent = name;
     }
 }
